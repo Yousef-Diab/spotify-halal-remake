@@ -22,7 +22,7 @@ const Dashboard = () => {
     }, [session])
     
     
-    if (!session || !session.accessToken) return <></>;
+    if (!session || !session.accessToken) return <Loading />;
     return (
 
         <main className="flex flex-col md:flex h-screen w-screen bg-black lg:pb-24">

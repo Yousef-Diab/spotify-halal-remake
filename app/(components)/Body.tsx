@@ -5,6 +5,7 @@ import { useDispatch } from 'react-redux';
 import { spotifyApi } from '../../services/SpotifyApi';
 import { setActiveTrack, setIsPlaying } from '../../store/Reducers/player';
 import { useAppSelector } from '../../store/store';
+import { keywords, newReleasesKeywords } from '../keywords';
 import Poster from './Poster';
 import Search from './Search';
 import Track from './Track';
@@ -27,7 +28,7 @@ const Body = () => {
 
         let cancel = false;
 
-        spotifyApi.instance(session.accessToken).searchTracks(`${search} سورة انشودة قران حديث`).then((res: any) => {
+        spotifyApi.instance(session.accessToken).searchTracks(`${search} ${keywords.join(" ")}`).then((res: any) => {
             if (cancel) return;
             setSearchResults(
                 res.body.tracks.items.map((track: any) => {
@@ -50,7 +51,7 @@ const Body = () => {
     useEffect(() => {
         if (!session || !session.accessToken) return;
 
-        spotifyApi.instance(session.accessToken).searchTracks(`سورة انشودة قران حديث`).then((res: any) => {
+        spotifyApi.instance(session.accessToken).searchTracks(`${newReleasesKeywords.join(" ")}`).then((res: any) => {
             setNewReleases(
                 res.body.tracks.items.map((track: any) => {
                     return {
