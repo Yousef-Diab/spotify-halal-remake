@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { HYDRATE } from 'next-redux-wrapper';
+
 type intiialStateType={
     isPlaying:boolean;
     activeTrack: any | null;
@@ -18,14 +18,6 @@ const player = createSlice({
         },
         setActiveTrack: (state, { payload }: PayloadAction<any>) => {
             state.activeTrack = payload;
-        },
-    },
-    extraReducers: {
-        [HYDRATE]: (state, action) => {
-            return {
-                ...state,
-                ...action.payload.auth,
-            };
         },
     }
 });

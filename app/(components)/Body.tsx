@@ -23,7 +23,6 @@ const Body = () => {
 
     // Searching...
     useEffect(() => {
-        if (!search) return setSearchResults([]);
         if (!session || !session.accessToken) return;
 
         let cancel = false;
@@ -109,10 +108,10 @@ const Body = () => {
                 {/* Tracks */}
                 <div className={`w-full pr-11  hidden md:flex md:flex-col transition-transform duration-300 ${expanded ? 'scale-0' : ''}`}>
                     <h2 className="text-white font-bold mb-3">
-                        {searchResults.length === 0 ? "New Releases" : "Tracks"}
+                        {newReleases.length !== 0 ? "Tracks" : "New Releases"}
                     </h2>
                     <div className="space-y-3 border-2 border-[#262626] rounded-2xl p-3 bg-[#0D0D0D] overflow-y-scroll h-[1000px] md:h-96 scrollbar-hide  w-full">
-                        {searchResults.length === 0
+                        {newReleases.length !== 0
                             ? newReleases
                                 .map((track) => (
                                     <Track

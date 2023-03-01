@@ -43,8 +43,8 @@ const Player = ({ accessToken }: Props) => {
         play={isPlaying}
         uris={activeTrack && activeTrack.uri ? [activeTrack.uri] : []}
         magnifySliderOnHover={true}
-        autoPlay={true}
-
+        hideAttribution
+        layout='responsive'
       />
     </>
   )

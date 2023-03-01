@@ -1,5 +1,5 @@
 'use client'
-import { useSession } from 'next-auth/react';
+import { getSession, useSession } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
 import { useEffect } from 'react';
 
@@ -12,20 +12,23 @@ import Loading from './loading';
 const Dashboard = () => {
 
     const router = useRouter();
-    const { data: session, status }:any = useSession();
+    const { data: session, status }: any = useSession();
 
-    if(status ==='loading') return <Loading/>
 
-    
+
+    if (status === 'loading')
+        return <Loading />
+
+
     useEffect(() => {
         if (session && session.accessToken) spotifyApi.instance(session.accessToken);
     }, [session])
-    
-    
+
+
     if (!session || !session.accessToken) return <Loading />;
     return (
 
-        <main className="flex flex-col md:flex h-screen w-screen bg-black lg:pb-24">
+        <main className="flex flex-col md:flex h-screen w-screen bg-black lg:pb-24 md:overflow-y-hidden">
             <SideBar />
 
             <div className='flex justify-center w-full'>
