@@ -15,10 +15,10 @@ const Search = ({ search, setSearch, setExpanded, expanded }: Props) => {
                 type="text"
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
-                className="bg-[#1A1A1A] text-white border-none lg:w-full focus:ring-0 outline-none placeholder-[#FAFAFA] text-xs"
+                className="bg-[#1A1A1A] text-white border-none w-full focus:ring-0 outline-none placeholder-[#FAFAFA] text-xs"
                 placeholder="Search..."
             />
-            <div className={`hidden md:inline-block ml-auto w-full text-end text-[#dad9d2] transition-all transition-500 cursor-pointer hover:text-white hover:font-bold `} onClick={() => setExpanded(prev => !prev)}> {expanded? 'Collapse':'Expand'} Results </div>
+            <div className={`hidden md:inline-block ml-auto w-40 text-end text-[#dad9d2] transition-all transition-500 cursor-pointer hover:text-white hover:font-bold `} onClick={() => setExpanded(prev => !prev)}> {expanded? 'Collapse':'Expand'} Results </div>
 
 
         </div>
