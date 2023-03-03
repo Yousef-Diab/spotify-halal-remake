@@ -1,3 +1,4 @@
+import { Metadata } from 'next';
 import { getServerSession } from 'next-auth';
 import { getProviders } from 'next-auth/react';
 import Image from 'next/image';
@@ -26,3 +27,7 @@ const Signin = async () => {
 }
 
 export default Signin;
+
+export const metadata: Metadata = {
+    title: 'Login - Spotify',
+};

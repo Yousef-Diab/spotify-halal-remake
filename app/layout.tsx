@@ -1,11 +1,11 @@
 import '../styles/globals.css';
 
 import { getServerSession } from 'next-auth';
-import { redirect } from 'next/navigation';
 
 import authOptions from '../pages/api/auth/[...nextauth]';
 import ClientProvider from './(components)/ClientProvider';
 
+import type { Metadata } from 'next'
 export default async function RootLayout({
   children,
 }: {
@@ -25,3 +25,16 @@ export default async function RootLayout({
     </html>
   )
 }
+
+export const metadata: Metadata = {
+  title: 'Spotify Remake - Home',
+  icons:{
+    icon: '/images/spotify-logo.ico',
+    shortcut: '/images/spotify-logo.ico'
+  },
+  viewport: {
+    width: 'device-width',
+    initialScale: 1,
+    maximumScale: 1,
+  },
+};

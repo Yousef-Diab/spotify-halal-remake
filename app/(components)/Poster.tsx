@@ -1,5 +1,4 @@
 import { BsFillPauseFill, BsFillPlayFill } from 'react-icons/bs';
-import { useDispatch } from 'react-redux';
 
 import { useAppSelector } from '../../store/store';
 
@@ -11,7 +10,6 @@ type Props = {
 function Poster({ track, handleSelectTrack }: Props) {
     const isPlaying = useAppSelector(state => state.player.isPlaying);
     const activeTrack = useAppSelector(state => state.player.activeTrack);
-    const dispatch = useDispatch();
 
     const handlePlay = () => {
         handleSelectTrack(track);

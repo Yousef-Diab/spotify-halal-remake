@@ -28,7 +28,7 @@ const Dashboard = () => {
     if (!session || !session.accessToken) return <Loading />;
     return (
 
-        <main className="flex flex-col md:flex h-screen w-screen bg-black lg:pb-24 md:overflow-y-hidden">
+        <main className="flex flex-col md:flex h-screen w-screen bg-black lg:pb-24 md:overflow-hidden">
             <SideBar />
 
             <div className='flex justify-center w-full'>
