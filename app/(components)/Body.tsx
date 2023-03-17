@@ -80,7 +80,7 @@ const Body = () => {
 
     const [expanded, setExpanded] = useState(false);
     return (
-        <section className="bg-black ml-24 py-4 space-y-8 md:max-w-6xl flex-grow md:mr-2.5">
+        <section className="bg-black md:ml-24 py-4 space-y-8 md:max-w-6xl flex-grow md:mr-2.5">
             <Search search={search} setSearch={(value: string) => setSearch(value)} setExpanded={setExpanded} expanded={expanded} />
             <div className={`grid overflow-y-scroll scrollbar-hide py-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-4 gap-y-8 md:gap-x-1 p-4 transition-all duration-300 delay-300 h-full md:h-96 ${expanded ? '!h-screen gap-y-4' : ''}`}>
                 {searchResults.length === 0

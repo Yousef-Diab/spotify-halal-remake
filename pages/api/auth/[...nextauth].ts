@@ -11,8 +11,8 @@ async function refreshAccessToken(token: any) {
         const url =
             "https://accounts.spotify.com/api/token?" +
             new URLSearchParams({
-                client_id: process.env.SPOTIFY_CLIENT_ID as string,
-                client_secret: process.env.SPOTIFY_CLIENT_SECRET as string,
+                client_id: process.env.SPOTIFY_CLIENT_ID!,
+                client_secret: process.env.SPOTIFY_CLIENT_SECRET!,
                 grant_type: "refresh_token",
                 refresh_token: token.refreshToken,
             });
@@ -64,6 +64,7 @@ const authOptions: NextAuthOptions = {
             // Initial sign in
             if (account && user) {
                 token.accessToken = account.access_token;
+                token.refreshToken = account.refresh_token;
                 token.user = user;
                 return {
                     accessToken: account.access_token,
@@ -85,6 +86,7 @@ const authOptions: NextAuthOptions = {
             if (!token || !token.user || !token.accessToken) return null;
             session.user = token.user;
             session.accessToken = token.accessToken;
+            session.refreshToken = token.refresh_token;
             return session;
         },
     },
